@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Vue.js Application</title>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/671001cbb5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- Header -->
+    <div class="header-div">
+      <div>
+          <i class="fa-brands fa-youtube" style="font-size: 25px; margin-right: 5px;"></i> Youtube Channel Data API
+      </div>
+    </div>
+    <!-- Header -->
+
+    <!-- Contents -->
+    <div style="padding: 30px 100px 0 100px;">
+      <!-- search container START-->
+      <div class="search-container">
+        <input type="text" placeholder="Youtube Channel" class="search-input" v-model="ChannelName" >
+        <button @click="searchChannel(ChannelName)" class="search-btn">
+          <i class="fa-brands fa-youtube" style="font-size: 18px; margin-right: 5px;"></i> Search Channel
+        </button>
+      </div>
+      <!-- search container END-->
+  
+      <!-- loading container START-->
+      <div class="loading-div" id="loadingImageDiv">
+        <img class="loadingImage" :src="loadingImage">
+      </div>
+      <!-- loading container END-->
+  
+      <!-- Error container START-->
+      <div class="error-div" id="errorDiv">
+        <p>Something went wrong, this maybe due to network connection or maybe you have reached the quota<i class="fa-regular fa-face-sad-tear" style="margin-left: 5px;"></i>.</p>
+      </div>
+      <!-- Error container END-->
+  
+      <div style="height: 1px; background-color: rgb(210, 210, 210); margin-top: 20px;"></div>
+  
+      <!-- Youtube Channel Information START-->
+      <div class="information-container">
+  
+        <!-- Main Information of Channel START-->
+        <div class="main-information-container">
+          <img id="channelImage" :src="defaultImage">
+          <div class="channel-information-right">
+            <h1 id="channelNameInformation">Youtube Channel Name</h1>
+            <p id="channelDescriptionInformation">Channel Description</p>
+            <p id="channelIDInformationText"><a id="channelIDInformation" href="">Channel ID</a></p>
+          </div>
+        </div>
+        <!-- Main Information of Channel END-->
+  
+        <!-- Channel Videos START-->
+        <div class="bottom-div">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="no-th">No.</th>
+                  <th class="video-title-th">Video Title</th>
+                  <th>Video Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="nodata-tr" style="display: table-row;">
+                  <td colspan="3">No Data</td>
+                </tr>
+                <tr v-for="(video, index) in displayedVideos" :key="index">
+                  <td style="font-weight: bold; padding: 5px 5px 5px 10px;">{{ startIndex + index + 1 }}</td>
+                  <td style="padding: 5px 19px 5px 5px;">
+                    <div style="display: flex; justify-content: left; text-align: center; align-items: center;">
+                      <img id="videoThumbnail" style="margin-right: 5px; height: 20px; width: 20px; border-radius: 50%;" :src="video.thumbnail">{{ video.title }}
+                    </div>
+                  </td>
+                  <td><a :href="video.video_link"><i class="fa fa-link" aria-hidden="true" style="margin-right: 5px; color: black;"></i> {{ video.video_link }}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <!-- Pagination START-->
+          <div class="pagination">
+            <button @click="previousPage" :disabled="currentPage === 1" style="cursor: pointer; font-size: 25px; background-color: transparent; border: 1px solid white; outline: none;"><i class="fas fa-caret-left"></i><span style="font-size: 13px" id="currentPage">1</span></button>
+            -
+            <button @click="nextPage" :disabled="currentPage === totalPages" style="cursor: pointer; font-size: 25px; background-color: transparent; border: 1px solid white; outline: none;"><span style="font-size: 13px; margin-left: 5px" id="lastPage">1</span><i class="fas fa-caret-right"></i></button>
+          </div>
+          <!-- Pagination END-->
+  
+        </div>
+        <!-- Channel Videos END-->
+      </div>
+      <!-- Youtube Channel Information -->
+    </div>
+    <!-- Contents -->
+
+  </div>
+
+ <script src="js/show_youtube_channel.js" ></script>
+</body>
+</html>

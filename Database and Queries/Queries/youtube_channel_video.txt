@@ -1,0 +1,9 @@
+CREATE TABLE youtube_channel_videos (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  channel_id VARCHAR(255),
+  video_link TEXT,
+  title TEXT,
+  description TEXT,
+  thumbnail TEXT,
+  FOREIGN KEY (channel_id) REFERENCES youtube_channel(id)
+);

@@ -1,0 +1,6 @@
+CREATE TABLE youtube_channel (
+  id VARCHAR(255) PRIMARY KEY,
+  profile_picture TEXT,
+  name TEXT,
+  description TEXT
+);
