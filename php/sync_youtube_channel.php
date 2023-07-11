@@ -7,7 +7,7 @@ include_once 'php/connection.php';
 
 $channelName = $_GET['channelName'];
 
-$API_KEY = 'AIzaSyCtNR231iSaufXFJIZa90m9ScV9nKP9bNw';
+$API_KEY = 'AIzaSyDHLw8-bmD7tY0HZzdBndi0fCY2EF_68Tw';
 $allResults = [];
 
 //this will check if the search input is empty or not
