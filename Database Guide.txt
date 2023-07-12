@@ -1,8 +1,0 @@
-Before running the program first you need to download and install Xampp since I am using MySQL database
-	-Run Xampp Control Panel as Administrator
-	-install apache service if it is not installed then click start
-	-install MySQL service if it is not installed then click start
-
--Open your Localhost database by going to this url http://localhost/phpmyadmin/ (This may vary if you are using different host rather than 8080) or by clicking the admin button of MySQL in the xampp control panel
-	-create a database name youtube_db
-	-after creating a database, open the database in the right side by clicking it and you need to import the database (database is lcoated inside the folder also named "youtube_db.sql" 

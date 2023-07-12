@@ -46,7 +46,7 @@ createApp({
           try {
               loadingImage.style.display = 'block'
 
-              axios.get('http://localhost/cdn/php/sync_youtube_channel.php', {
+              axios.get('http://localhost/youtube/php/sync_youtube_channel.php', {
               params: {
                 channelName: ChannelName,
                 port: port
@@ -54,7 +54,7 @@ createApp({
 
                 if(response.data !== 'Error' && response.data.length > 0){
                     try {
-                        axios.get('http://localhost/cdn/php/youtube_channel_json.php', {
+                        axios.get('http://localhost/youtube/php/youtube_channel_json.php', {
                         params: {
                           channelID: response.data
                         }}).then(response => {

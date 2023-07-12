@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *'); // Allow requests from any origin
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS'); // Allow specific HTTP methods
 header('Access-Control-Allow-Headers: Content-Type, Authorization'); // Allow specific headers
 
-include_once 'php/connection.php';
+include_once 'connection.php';
 
 $channelName = $_GET['channelName'];
 
